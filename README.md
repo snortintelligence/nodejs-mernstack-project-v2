@@ -1,7 +1,5 @@
 # nodejs-mernstack-project-v2
 
-Certainly! Let's break down the features of the app and how it integrates the Node.js service with the user interface (UI):
-
 **Features of the App:**
 
 1. **Create Products:** The app allows users to create new products by entering a product name and price. When the user submits the create form, a POST request is sent to the Node.js service to create a new product.
