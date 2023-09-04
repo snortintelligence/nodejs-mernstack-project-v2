@@ -1,0 +1,97 @@
+openapi: 3.0.0
+info:
+  title: E-Commerce API
+  description: API for managing products in an e-commerce app
+  version: 1.0.0
+paths:
+  /api/products:
+    get:
+      summary: Get a list of products
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                - id: 1
+                  title: Bag pack
+                  price: 4000
+                  description: Your perfect pack for everyday use
+                  category: language
+    post:
+      summary: Create a new product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                price:
+                  type: number
+                description:
+                  type: string
+                category:
+                  type: string
+      responses:
+        '201':
+          description: Product created successfully
+  /api/products/{id}:
+    get:
+      summary: Get details of a specific product
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                id: 1
+                title: Bag pack
+                price: 4000
+                description: Your perfect pack for everyday use
+                category: language
+    put:
+      summary: Update details of a specific product
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                price:
+                  type: number
+                description:
+                  type: string
+                category:
+                  type: string
+      responses:
+        '200':
+          description: Product updated successfully
+    delete:
+      summary: Delete a specific product
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Product deleted successfully
